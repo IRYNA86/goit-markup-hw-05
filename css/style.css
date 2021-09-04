@@ -3,6 +3,8 @@
   --second-title-color: #212121;
   --main-text-color: #757575;
   --accent-color: #2196f3;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --time: 250ms;
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -88,6 +90,7 @@ ul {
   color: #000000;
 }
 .header-studio {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -95,6 +98,16 @@ ul {
   padding-bottom: 32px;
   letter-spacing: 0.02em;
   color: #2196f3;
+}
+.header-studio::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
 }
 .header-studio-second {
   font-weight: 500;
@@ -115,6 +128,7 @@ ul {
   color: #212121;
 }
 .header-potfolio-second {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   padding-top: 32px;
@@ -122,6 +136,16 @@ ul {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: #2196f3;
+}
+.header-potfolio-second::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
 }
 .header-contact {
   font-weight: 500;
@@ -133,10 +157,12 @@ ul {
 .envelope {
   display: block;
   fill: var(--main-text-color);
+  transition: fill var(--time) var(--timing-function);
 }
 .smartphone {
   display: block;
   fill: var(--main-text-color);
+  transition: fill var(--time) var(--timing-function);
 }
 .header-icons {
   margin-right: 10px;
@@ -151,6 +177,7 @@ ul {
   color: #757575;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color var(--time) var(--timing-function);
 }
 .header-email:hover,
 .header-email:focus,
@@ -169,6 +196,7 @@ ul {
   color: #757575;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color var(--time) var(--timing-function);
 }
 .header-tel:hover,
 .header-tel:focus,
@@ -222,6 +250,7 @@ ul {
   border-radius: 4px;
   cursor: pointer;
   font-family: inherit;
+  transition: background-color var(--time) var(--timing-function);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -284,6 +313,9 @@ ul {
 }
 .main-buttons-item:not(:first-child) {
   margin-left: 8px;
+}
+.main-buttons-item {
+  transition: box-shadow var(--time) var(--timing-function);
 }
 .main-button-all {
   background-color: #2196f3;
@@ -354,11 +386,33 @@ ul {
 }
 .projects-information-link {
   display: block;
+  transition: box-shadow var(--time) var(--timing-function);
 }
 .projects-information-link:hover,
 .projects-information-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.projects-cards-text {
+  position: relative;
+  overflow: hidden;
+}
+.projects-information-text {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--main-title-colore);
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform var(--time) var(--timing-function);
+}
+.projects-information-link:hover .projects-information-text {
+  transform: translateY(0%);
 }
 /*----DOING-----*/
 .doing {
@@ -378,6 +432,27 @@ ul {
 }
 .doing-image .doing-image-pictures:not(:first-child) {
   margin-left: 30px;
+}
+.doing-image-pictures {
+  position: relative;
+  display: block;
+}
+.doing-kind {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--main-title-colore);
+  background-color: rgba(47, 48, 58, 0.8);
+  width: 370px;
+  height: 70px;
 }
 /*---TEAM----*/
 .team {
@@ -457,6 +532,8 @@ ul {
   height: 100%;
   border-radius: 50%;
   background-color: #ffffff;
+  transition: fill var(--time) var(--timing-function);
+  transition: background-color var(--time) var(--timing-function);
 }
 .clients {
   padding-top: 94px;
@@ -478,6 +555,15 @@ ul {
   border: 1px solid #afb1b8;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 4px;
+  transition: border-color var(--time) var(--timing-function);
+}
+.one,
+.two,
+.three,
+.four,
+.five,
+.six {
+  transition: fill var(--time) var(--timing-function);
 }
 .clients-icons-number-cards {
   display: block;
@@ -587,6 +673,7 @@ ul {
   width: 44px;
   height: 44px;
   justify-content: center;
+  transition: background-color var(--time) var(--timing-function);
 }
 .together-link:hover,
 .together-link:focus {
@@ -598,7 +685,8 @@ ul {
   width: 100vw;
   top: 0;
   background-color: rgba(23, 26, 36, 0.2);
-  transition: opacity 300ms, visibility 300ms;
+  transition: opacity var(--time) var(--timing-function),
+    visibility var(--time) var(--timing-function);
 }
 .modal {
   position: absolute;
