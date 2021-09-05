@@ -66,6 +66,9 @@ ul {
   padding-top: 32px;
   padding-bottom: 32px;
 }
+.header-item {
+  transition: color var(--time) var(--timing-function);
+}
 .header-right .header-right-item + .header-right-item {
   margin-left: 50px;
 }
@@ -511,6 +514,7 @@ ul {
 }
 .socials-icons {
   fill: #afb1b8;
+  transition: fill var(--time) var(--timing-function);
 }
 .socials-link:hover .socials-icons,
 .socials-link:focus .socials-icons {
@@ -532,7 +536,6 @@ ul {
   height: 100%;
   border-radius: 50%;
   background-color: #ffffff;
-  transition: fill var(--time) var(--timing-function);
   transition: background-color var(--time) var(--timing-function);
 }
 .clients {
